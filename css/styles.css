@@ -1,6 +1,7 @@
 body {
-    background-color: rgb(237, 237, 238);
+    background-color: rgb(237, 237, 238) !important;
 }
+
 canvas {
     border: 2px solid black;
 }
@@ -11,4 +12,18 @@ canvas {
     top: 50%;
     left: 50%;
     transform: translate(-50%, 0%);
+}
+
+#navigation {
+    background-color: lightgrey;
+    color: white;
+    text-decoration: none;
+    font-family: 'Roboto Condensed', sans-serif;
+    font-size: 80pt;
+    text-align: center;
+}
+
+#jasper-logo {
+    padding: 10px;
+    height: 10%;
 }

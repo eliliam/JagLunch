@@ -1,7 +1,3 @@
-
-
-
-
 class Flower{
     constructor(){
         this.petals = {
@@ -23,10 +19,11 @@ class Flower{
             } else {
                 this.petals[petal].attr('fill', this.BlueDark);
             }
-            console.log(this.petals[petal])
         }
     }
 }
 
+
+
 let f = new Flower();
-f.reset();
+
