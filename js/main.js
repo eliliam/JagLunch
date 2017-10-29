@@ -1,7 +1,8 @@
 let f = new Flower();
 
-let ws = new WebSocket("wss://smerkuosdavid.ddns.net");
-
+// let ws = new WebSocket("wss://smerkous.ddns.net:6767/ws");
+let ws = new WebSocket("ws://localhost:8080");
+f.reset();
 let session = {};
 
 ws.onerror = err => {
