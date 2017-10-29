@@ -17,7 +17,7 @@ ws.onmessage = message => {
     console.log(message);
 
     switch (message.exec) {
-        case auth:
+        case "auth":
             session.expiresAt = message.expiresAt;
             session.isAdmin = message.isAdmin;
             if (session.isAdmin) {
