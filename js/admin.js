@@ -1,4 +1,5 @@
 function adminify(){
+    $("#message").text("This is the admin page, please click the petals to change them");
     $("#petal-trash").on("click", event => {
         switch (f.trashCur) {
             case f.BlueDark:

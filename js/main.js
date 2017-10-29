@@ -1,19 +1,20 @@
 let f = new Flower();
 
-// let ws = new WebSocket("wss://smerkous.ddns.net:6767/ws");
-let ws = new WebSocket("ws://localhost:8080");
+let ws = new WebSocket("wss://smerkous.ddns.net:6767/ws");
 f.reset();
 let session = {};
-
+adminify();
 ws.onerror = err => {
     f.error();
     $('#message').text("There was an error, please refresh and check your connection");
 };
 
 ws.onopen = conn => {
-    ws.send({"exex": "auth", "user": "david.smerkous.1@mypisd.net", "key": "password"});
+    ws.send(JSON.stringify({"exec": "auth", "user": "david.smerkous.1@mypisd.net", "key": "password"}));
 };
 ws.onmessage = message => {
+    message = JSON.parse(message.data);
+    console.log(message);
 
     switch (message.exec) {
         case auth:
