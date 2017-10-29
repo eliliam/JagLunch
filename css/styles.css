@@ -27,3 +27,9 @@ canvas {
     padding: 10px;
     height: 10%;
 }
+
+.messagebox {
+    font-family: "Roboto Condensed", sans-serif;
+    font-size: 60pt;
+    margin-top: 5%;
+}
