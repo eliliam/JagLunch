@@ -1,5 +1,26 @@
 function adminify(){
-    $("#message").text("This is the admin page, please click the petals to change them");
+    $("#message").toggleClass("hidden");
+    $("#messageEdit").toggleClass("hidden");
+    $("#adminHeader").toggleClass("hidden");
+    $("#save-btn").toggleClass("hidden").on("click", event => {
+        let message = $("#messageEdit").val();
+        ws.send(JSON.stringify({
+            "exec": "addFlower",
+            "trash": {
+                "level": f.trashVal,
+                "message": ""
+            },
+            "safety": {
+                "level": f.safetyVal,
+                "message": ""
+            },
+            "tardies": {
+                "level": f.tardyVal,
+                "message":""
+            }
+        }));
+        ws.send(JSON.stringify({"exec": "addAnnouncement", "message": message}));
+    });
     $("#petal-trash").on("click", event => {
         switch (f.trashCur) {
             case f.BlueDark:

@@ -24,6 +24,7 @@ class Flower{
                 this.petals[petal].attr('fill', this.BlueDark);
                 this[petal + "Cur"] = this.BlueDark;
             }
+            this[petal + "Val"] = 0.0;
         }
     }
     error(){
@@ -50,6 +51,7 @@ class Flower{
                 case 9.0:
                     this.petals[petal].attr('fill', this.GrayLight);
                     $('.petal-back').attr('fill', this.GrayDarker);
+                    break;
             }
         } else {
             switch (color) {
@@ -66,8 +68,10 @@ class Flower{
                     this[petal + "Cur"] = this.RedDark;
                     break;
                 case 9.0:
-                    this.petals[petal].attr('fill', this.GrayDark)
+                    this.petals[petal].attr('fill', this.GrayDark);
+                    break;
             }
         }
+        this[petal + "Val"] = color;
     }
 }

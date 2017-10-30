@@ -8,9 +8,10 @@ canvas {
 
 #flower {
     width: 75%;
-    position: absolute;
+    position: relative;
     top: 50%;
     left: 50%;
+    margin-top: 20%;
     transform: translate(-50%, 0%);
 }
 
@@ -23,13 +24,39 @@ canvas {
     text-align: center;
 }
 
+#navigation a {
+    color: #6E6E6E;
+
+}
+
+#save-btn {
+    font-size: 50pt;
+    font-family: "Roboto Condensed", sans-serif;
+    position: absolute;
+    bottom: 2%;
+    right: 5%;
+}
+
 #jasper-logo {
     padding: 10px;
     height: 10%;
 }
 
+#adminHeader {
+    font-size: 50pt;
+    font-family: "Roboto Condensed", sans-serif;
+    padding-left: 5%;
+}
+
+#jaglunch-unavailable {
+    text-align: center;
+    font-family: "Roboto Condensed", sans-serif;
+    font-size: 50pt;
+
+}
+
 .messagebox {
     font-family: "Roboto Condensed", sans-serif;
     font-size: 60pt;
-    margin-top: 5%;
+    margin:3%;
 }

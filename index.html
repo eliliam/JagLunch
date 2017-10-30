@@ -2,41 +2,45 @@
 <head>
     <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed" rel="stylesheet">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/jquery.toast.min.css">
     <link rel="stylesheet" href="css/styles.css"/>
 </head>
 <body>
-<div class="topnav" id="navigation">
-    <img id="jasper-logo" src="assets/jasper.svg"/>
-    <a href="/">JagLunch</a>
+<!-- Hidden on non-phone devices -->
+<div class="hidden-md hidden-lg hidden-xl">
+    <div class="topnav" id="navigation">
+        <img id="jasper-logo" src="assets/jasper.svg"/>
+        <a href="/">JagLunch</a>
+    </div>
+    <p id="adminHeader" class="hidden">Admin Page</p>
+    <div id="message" class="well messagebox">Message from your teachers</div>
+    <input type="text" id="messageEdit" class="well messagebox hidden" placeholder="Tap to edit...">
+    <div class="container-fluid main-container">
+        <svg id="flower" version="1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 44" enable-background="new 0 0 48 48" >
+            <path fill="#2E7D32" d="M5,24c0,18.9,14.8,19,17,19s4,0,4,0S24.1,26.5,5,24z"/>
+            <rect x="22" y="26" fill="#388E3C" width="4" height="17"/>
+            <path class="petal-back" fill="#3498DB" d="M34,16c0,5.1-5.2,8.2-8,8.2s-2-3.1-2-8.2s5-9.2,5-9.2S34,10.9,34,16z"/> <!--back -->
+            <path class="petal-back" fill="#3498DB" d="M14,16c0,5.1,5.2,8.2,8,8.2s2-3.1,2-8.2s-5-9.2-5-9.2S14,10.9,14,16z"/> <!--back-->
+            <path id="petal-tardy" fill="#22A7F0" d="M24,27c-2.2-1.6-1.9-4.5,2.4-8.8C30.8,13.8,32,7,32,7s5,3.4,5,9C37,21.9,31.3,27,24,27z"/> <!--Right-->
+            <path id="petal-trash" fill="#22A7F0" d="M24,27c2.2-1.6,1.9-4.5-2.4-8.8C17.2,13.8,16,7,16,7s-5,3.4-5,9C11,21.9,16.7,27,24,27z"/> <!--Left-->
+            <path id="petal-safety" fill="#19B5FE" d="M30,16c0,6.1-2.7,11-6,11s-6-4.9-6-11s6-11,6-11S30,9.9,30,16z"/> <!-- Mid -->
+            <path fill="#4CAF50" d="M22,43c0,0,1.8,0,4,0s17-0.1,17-19C23.9,26.5,22,43,22,43z"/>
+            <text x="0" y="5" font-family="Roboto Condensed" font-size="4">Trash</text>
+            <line x1="6" y1="6" x2="11" y2="11" stroke="#2E7D32" stroke-width="0.5"/>
+            <text x="19.5" y="3.1" font-family="Roboto Condensed" font-size="4">Safety</text>
+            <line x1="24" y1="3.5" x2="24" y2="5" stroke="#2E7D32" stroke-width="0.5"/>
+            <text x="39" y="5" font-family="Roboto Condensed" font-size="4">Tardy</text>
+            <line x1="43" y1="6" x2="37" y2="11" stroke="#2E7D32" stroke-width="0.5"/>
+        </svg>
+        <button id="save-btn" class="btn btn-default hidden">Save</button>
+    </div>
 </div>
-<div id="message" class="well messagebox">Hey</div>
-<div class="container-fluid main-container">
-    <!-- Blue-Dark: #22A7F0 -->
-    <!-- Blue-Light: #19B5FE -->
-    <!-- Orange-Light: #F4B350 -->
-    <!-- Orange-Dark: #F39C12 -->
-    <!-- Red-Dark: #E53935 -->
-    <!-- Red-Light: #F44336 -->
+<div id="jaglunch-unavailable" class="jumbotron">JagLunch is currently unavalable on desktop, please use your phone</div>
 
-    <svg id="flower" version="1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 44" enable-background="new 0 0 48 48" >
-        <path fill="#2E7D32" d="M5,24c0,18.9,14.8,19,17,19s4,0,4,0S24.1,26.5,5,24z"/>
-        <rect x="22" y="26" fill="#388E3C" width="4" height="17"/>
-        <path class="petal-back" fill="#3498DB" d="M34,16c0,5.1-5.2,8.2-8,8.2s-2-3.1-2-8.2s5-9.2,5-9.2S34,10.9,34,16z"/> <!--back -->
-        <path class="petal-back" fill="#3498DB" d="M14,16c0,5.1,5.2,8.2,8,8.2s2-3.1,2-8.2s-5-9.2-5-9.2S14,10.9,14,16z"/> <!--back-->
-        <path id="petal-tardy" fill="#22A7F0" d="M24,27c-2.2-1.6-1.9-4.5,2.4-8.8C30.8,13.8,32,7,32,7s5,3.4,5,9C37,21.9,31.3,27,24,27z"/> <!--Right-->
-        <path id="petal-trash" fill="#22A7F0" d="M24,27c2.2-1.6,1.9-4.5-2.4-8.8C17.2,13.8,16,7,16,7s-5,3.4-5,9C11,21.9,16.7,27,24,27z"/> <!--Left-->
-        <path id="petal-safety" fill="#19B5FE" d="M30,16c0,6.1-2.7,11-6,11s-6-4.9-6-11s6-11,6-11S30,9.9,30,16z"/> <!-- Mid -->
-        <path fill="#4CAF50" d="M22,43c0,0,1.8,0,4,0s17-0.1,17-19C23.9,26.5,22,43,22,43z"/>
-        <text x="0" y="5" font-family="Roboto Condensed" font-size="4">Trash</text>
-        <line x1="6" y1="6" x2="11" y2="11" stroke="#2E7D32" stroke-width="0.5"/>
-        <text x="19.5" y="3.1" font-family="Roboto Condensed" font-size="4">Safety</text>
-        <line x1="24" y1="3.5" x2="24" y2="5" stroke="#2E7D32" stroke-width="0.5"/>
-        <text x="39" y="5" font-family="Roboto Condensed" font-size="4">Tardy</text>
-        <line x1="43" y1="6" x2="37" y2="11" stroke="#2E7D32" stroke-width="0.5"/>
-    </svg>
-</div>
-<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script src="js/jquery.toast.min.js"></script>
+<script src="js/util.js"></script>
 <script src="js/flower.js"></script>
 <script src="js/admin.js"></script>
 <script src="js/main.js"></script>
