@@ -14,6 +14,7 @@ class Flower{
         this.GrayLight = "#7e7e7e";
         this.GrayDark = "#757575";
         this.GrayDarker = "#696969";
+        this.isError = false;
     }
     reset() {
         for (let petal in this.petals){
@@ -26,11 +27,13 @@ class Flower{
             }
             this[petal + "Val"] = 0.0;
         }
+        this.isError = false;
     }
     error(){
         this.setColor('trash', 9.0);
         this.setColor('tardy', 9.0);
         this.setColor('safety', 9.0);
+        this.isError = true;
     }
 
     setColor(petal, color) {

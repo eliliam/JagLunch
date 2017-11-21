@@ -60,3 +60,10 @@ canvas {
     font-size: 60pt;
     margin:3%;
 }
+.secondary {
+    text-align: center;
+    font-family: "Roboto Condensed", sans-serif;
+    font-size: 30pt;
+    color: #9E9E9E;
+    font-style: italic;
+}

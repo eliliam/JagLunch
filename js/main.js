@@ -8,8 +8,6 @@ ws.onerror = err => {
 };
 
 ws.onopen = conn => {
-    // ws.send(JSON.stringify({"exec": "auth", "user": "usaid.malik.1@mypisd.net", "key": "usaidpro"}));
-    // $.toast("Hey");
     ws.send(JSON.stringify({"exec": "auth", "user": "david.smerkous.1@mypisd.net", "key": "password"}));
 };
 ws.onmessage = message => {
@@ -27,6 +25,7 @@ ws.onmessage = message => {
             ws.send(JSON.stringify({"exec": "flower", "count": 1}));
             break;
         case "flower":
+            f.reset();
             if (message.flowers.length === 1){
                 session.flower = message.flowers[0];
                 f.setColor('trash', session.flower.trash.level);

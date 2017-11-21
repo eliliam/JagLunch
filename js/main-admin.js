@@ -26,6 +26,7 @@ ws.onmessage = message => {
             ws.send(JSON.stringify({"exec": "flower", "count": 1}));
             break;
         case "flower":
+            f.reset();
             if (message.flowers.length === 1){
                 session.flower = message.flowers[0];
                 f.setColor('trash', session.flower.trash.level);
